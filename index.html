@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vedika Beauty Parlour</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">✨ Vedika Beauty Parlour</div>
+    <nav>
+      <a href="#book">Book</a>
+      <a href="#previous">Bookings</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Glow. Shine. Repeat.</h1>
+      <p>Book your appointment today and save time tomorrow ✨</p>
+      <button onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
+        Book Now
+      </button>
+    </div>
+  </section>
+
+  <!-- Booking Form Section -->
+  <section id="book" class="booking">
+    <h2>Book Your Appointment</h2>
+    <form id="bookingForm" novalidate>
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="phone">Phone Number</label>
+      <!-- Enforce digits only: maxlength, pattern and inputmode -->
+      <input type="tel" id="phone" placeholder="Enter 10-digit phone number" maxlength="10" pattern="\d{10}" inputmode="numeric" required>
+      <div id="phoneError" class="error-message" aria-live="polite" style="display:none;"></div>
+
+      <label for="service">Service</label>
+      <select id="service" required>
+        <option value="" disabled selected>Select Service</option>
+        <option value="Facial">Facial</option>
+        <option value="Haircut">Haircut</option>
+        <option value="Makeup">Makeup</option>
+        <option value="Manicure">Manicure</option>
+        <option value="Pedicure">Pedicure</option>
+      </select>
+
+      <label for="date">Date</label>
+      <input type="date" id="date" required>
+
+      <label for="time">Time</label>
+      <input type="time" id="time" required>
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </section>
+
+  <!-- Previous Bookings -->
+  <section id="previous" class="previous">
+    <h2>My Bookings</h2>
+
+    <!-- Filter -->
+    <div class="filter">
+      <label for="filterService">Filter by Service:</label>
+      <select id="filterService">
+        <option value="all">All</option>
+        <option>Facial</option>
+        <option>Haircut</option>
+        <option>Makeup</option>
+        <option>Manicure</option>
+        <option>Pedicure</option>
+      </select>
+    </div>
+
+    <!-- Booking List -->
+    <div id="bookingList"></div>
+
+    <!-- Calendar View -->
+    <h2 style="margin-top:40px;">Calendar View</h2>
+    <div id="calendar"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 Vedika Beauty Parlour | Designed with 💜</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
